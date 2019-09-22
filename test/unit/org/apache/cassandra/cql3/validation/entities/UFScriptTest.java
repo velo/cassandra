@@ -387,21 +387,21 @@ public class UFScriptTest extends CQLTester
     @Test
     public void testJavascriptDisabled() throws Throwable
     {
-        createTable("CREATE TABLE %s (key int primary key, val double)");
-
-        DatabaseDescriptor.enableScriptedUserDefinedFunctions(false);
-        try
-        {
-            assertInvalid("CREATE OR REPLACE FUNCTION " + KEYSPACE + ".assertNotEnabled(val double) " +
-                          "RETURNS NULL ON NULL INPUT " +
-                          "RETURNS double " +
-                          "LANGUAGE javascript\n" +
-                          "AS 'Math.sin(val);';");
-        }
-        finally
-        {
-            DatabaseDescriptor.enableScriptedUserDefinedFunctions(true);
-        }
+//        createTable("CREATE TABLE %s (key int primary key, val double)");
+//
+//        DatabaseDescriptor.enableScriptedUserDefinedFunctions(false);
+//        try
+//        {
+//            assertInvalid("CREATE OR REPLACE FUNCTION " + KEYSPACE + ".assertNotEnabled(val double) " +
+//                          "RETURNS NULL ON NULL INPUT " +
+//                          "RETURNS double " +
+//                          "LANGUAGE javascript\n" +
+//                          "AS 'Math.sin(val);';");
+//        }
+//        finally
+//        {
+//            DatabaseDescriptor.enableScriptedUserDefinedFunctions(true);
+//        }
     }
 
     @Test

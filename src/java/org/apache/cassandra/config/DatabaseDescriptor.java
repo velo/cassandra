@@ -2714,21 +2714,6 @@ public class DatabaseDescriptor
         return preparedStatementsCacheSizeInMB;
     }
 
-    public static boolean enableUserDefinedFunctions()
-    {
-        return conf.enable_user_defined_functions;
-    }
-
-    public static boolean enableScriptedUserDefinedFunctions()
-    {
-        return conf.enable_scripted_user_defined_functions;
-    }
-
-    public static void enableScriptedUserDefinedFunctions(boolean enableScriptedUserDefinedFunctions)
-    {
-        conf.enable_scripted_user_defined_functions = enableScriptedUserDefinedFunctions;
-    }
-
     public static boolean enableUserDefinedFunctionsThreads()
     {
         return conf.enable_user_defined_functions_threads;
@@ -2955,7 +2940,7 @@ public class DatabaseDescriptor
         if (value > getConcurrentCompactors())
             logger.warn("max_concurrent_automatic_sstable_upgrades ({}) is larger than concurrent_compactors ({})", value, getConcurrentCompactors());
     }
-    
+
     public static AuditLogOptions getAuditLoggingOptions()
     {
         return conf.audit_logging_options;

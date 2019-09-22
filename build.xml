@@ -1163,6 +1163,16 @@
       </jar>
     </target>
 
+    <target name="native" depends="_artifacts-init">
+      <copy todir="${dist.dir}/">
+        <fileset dir="${basedir}/native"/>
+      </copy>
+      <exec executable="docker" failifexecutionfails="true">
+        <arg value="build"/>
+        <arg value="${dist.dir}"/>
+      </exec>
+    </target>
+
     <target name="_artifacts-init" depends="jar,javadoc,gen-doc">
       <mkdir dir="${dist.dir}"/>
       <!-- fix the control linefeed so that builds on windows works on linux -->

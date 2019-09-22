@@ -247,15 +247,17 @@ public abstract class UDFunction extends AbstractFunction implements ScalarFunct
                                     String language,
                                     String body)
     {
-        assertUdfsEnabled(language);
+        return null;
 
-        switch (language)
-        {
-            case "java":
-                return new JavaBasedUDFunction(name, argNames, argTypes, returnType, calledOnNullInput, body);
-            default:
-                return new ScriptBasedUDFunction(name, argNames, argTypes, returnType, calledOnNullInput, language, body);
-        }
+//        assertUdfsEnabled(language);
+//
+//        switch (language)
+//        {
+//            case "java":
+//                return new JavaBasedUDFunction(name, argNames, argTypes, returnType, calledOnNullInput, body);
+//            default:
+//                return new ScriptBasedUDFunction(name, argNames, argTypes, returnType, calledOnNullInput, language, body);
+//        }
     }
 
     /**
@@ -376,10 +378,10 @@ public abstract class UDFunction extends AbstractFunction implements ScalarFunct
 
     public static void assertUdfsEnabled(String language)
     {
-        if (!DatabaseDescriptor.enableUserDefinedFunctions())
-            throw new InvalidRequestException("User-defined functions are disabled in cassandra.yaml - set enable_user_defined_functions=true to enable");
-        if (!"java".equalsIgnoreCase(language) && !DatabaseDescriptor.enableScriptedUserDefinedFunctions())
-            throw new InvalidRequestException("Scripted user-defined functions are disabled in cassandra.yaml - set enable_scripted_user_defined_functions=true to enable if you are aware of the security risks");
+//        if (!DatabaseDescriptor.enableUserDefinedFunctions())
+//            throw new InvalidRequestException("User-defined functions are disabled in cassandra.yaml - set enable_user_defined_functions=true to enable");
+//        if (!"java".equalsIgnoreCase(language) && !DatabaseDescriptor.enableScriptedUserDefinedFunctions())
+//            throw new InvalidRequestException("Scripted user-defined functions are disabled in cassandra.yaml - set enable_scripted_user_defined_functions=true to enable if you are aware of the security risks");
     }
 
     static void initializeThread()
