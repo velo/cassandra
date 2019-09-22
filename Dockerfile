@@ -12,6 +12,15 @@
 # the License.
 #
 
+# generate cassandra artifacts
+FROM frekele/ant as artifacts
+
+WORKDIR /workdir
+
+COPY / /workdir
+
+RUN ant artifacts -Dno-javadoc=true -Dant.gen-doc.skip=true
+
 # build native image
 FROM oracle/graalvm-ce:19.0.0 as builder
 
@@ -19,7 +28,9 @@ RUN gu install native-image
 
 WORKDIR /workdir
 
-COPY / /workdir
+COPY --from=artifacts /workdir/build/dist/ /workdir
+
+RUN ls -lha
 
 RUN native-image --verbose \
     --no-fallback \
