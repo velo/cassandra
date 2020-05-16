@@ -587,7 +587,6 @@
           <dependency groupId="org.mindrot" artifactId="jbcrypt" version="0.3m" />
           <dependency groupId="io.airlift" artifactId="airline" version="0.8" />
           <dependency groupId="io.netty" artifactId="netty-all" version="4.1.37.Final" />
-          <dependency groupId="io.netty" artifactId="netty-tcnative-boringssl-static" version="2.0.25.Final" />
           <dependency groupId="net.openhft" artifactId="chronicle-queue" version="${chronicle-queue.version}"/>
           <dependency groupId="net.openhft" artifactId="chronicle-core" version="${chronicle-core.version}"/>
           <dependency groupId="net.openhft" artifactId="chronicle-bytes" version="${chronicle-bytes.version}"/>
@@ -612,9 +611,6 @@
           </dependency>
           <dependency groupId="org.caffinitas.ohc" artifactId="ohc-core-j8" version="${ohc.version}" />
           <dependency groupId="net.ju-n.compile-command-annotations" artifactId="compile-command-annotations" version="1.2.0" />
-          <dependency groupId="org.fusesource" artifactId="sigar" version="1.6.4">
-            <exclusion groupId="log4j" artifactId="log4j"/>
-          </dependency>
           <dependency groupId="com.carrotsearch" artifactId="hppc" version="0.8.1" />
           <dependency groupId="de.jflex" artifactId="jflex" version="1.6.0" />
           <dependency groupId="com.github.rholder" artifactId="snowball-stemmer" version="1.3.0.581.1" />
@@ -822,7 +818,6 @@
         <dependency groupId="net.openhft" artifactId="chronicle-bytes" version="${chronicle-bytes.version}"/>
         <dependency groupId="net.openhft" artifactId="chronicle-wire" version="${chronicle-wire.version}"/>
         <dependency groupId="net.openhft" artifactId="chronicle-threads" version="${chronicle-threads.version}"/>
-        <dependency groupId="org.fusesource" artifactId="sigar"/>
         <dependency groupId="org.eclipse.jdt.core.compiler" artifactId="ecj"/>
         <dependency groupId="org.caffinitas.ohc" artifactId="ohc-core"/>
         <dependency groupId="org.caffinitas.ohc" artifactId="ohc-core-j8"/>
@@ -1340,8 +1335,7 @@
       </jar>
   </target>
 
-  <target name="build-test" depends="_main-jar, stress-build, fqltool-build, write-poms" description="Compile test classes">
-    <antcall target="_build-test"/>
+  <target name="build-test" >
   </target>
 
   <target name="_build-test">

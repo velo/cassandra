@@ -22,7 +22,7 @@ COPY / /workdir
 RUN ant artifacts -Dno-javadoc=true -Dant.gen-doc.skip=true
 
 # build native image
-FROM oracle/graalvm-ce:19.0.0 as builder
+FROM oracle/graalvm-ce as builder
 
 RUN gu install native-image
 
